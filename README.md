@@ -1,2 +1,2 @@
 # ner-project
-Named Entity Recognition project for Inteligent Information Systems
+Named Entity Recognition project for Intelligent Information Services
