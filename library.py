@@ -5,13 +5,13 @@ class Library:
         self.file = file
         with open(file) as f:
             words = f.readlines()
-            self.words = [w.replace('\n', '') for w in words]
+            self.__words = [w.replace('\n', '') for w in words]
 
     def get_words(self):
-        return self.words
+        return self.__words
 
     def is_word(self, word):
-        if word in self.words:
+        if word in self.__words:
             return True
         else:
             return False
