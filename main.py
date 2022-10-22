@@ -1,16 +1,11 @@
-# This is a sample Python script.
+import nltk
+from library import Library
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+file = "const.txt"
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    lib = Library("library.txt")
+    with open(file) as f:
+        lines = f.read()
+        tokens = nltk.word_tokenize(lines)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
