@@ -12,5 +12,6 @@ if __name__ == '__main__':
         tokens = nltk.word_tokenize(lines)
 
         print(lib.get_words())
+        print(lib.is_word('Senator'))
         print(tokens)
 

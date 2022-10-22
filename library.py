@@ -5,14 +5,19 @@ class Library:
         self.file = file
         with open(file) as f:
             words = f.readlines()
-            self.__words = [w.replace('\n', '') for w in words]
+            words = [w.replace('\n', '') for w in words]
+            words = [w.lower() for w in words]
+            self.__words = {}
+            for i in range(len(words)):
+                self.__words[words[i]] = i
 
     def get_words(self):
-        return self.__words
+        return self.__words.keys()
 
     def is_word(self, word):
-        if word in self.__words:
-            return True
+        w = word.lower()
+        if w in self.__words.keys():
+            return self.__words[w]
         else:
-            return False
+            return -1
 
