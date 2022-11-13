@@ -1,5 +1,6 @@
 import nltk
 from library import Library
+from window import window
 
 # nltk.download('punkt')
 nltk.download('stopwords')
@@ -64,3 +65,5 @@ if __name__ == '__main__':
         print('')
         for key in entity_positions:
             print(key + ": " + str(len(entity_positions[key])))
+
+        window(lines, entity_positions.items())
