@@ -1,23 +1,66 @@
+import nltk
+
 
 class Library:
 
     def __init__(self, file):
-        self.file = file
+        self.__file = file
+
         with open(file) as f:
-            words = f.readlines()
-            words = [w.replace('\n', '') for w in words]
-            words = [w.lower() for w in words]
-            self.__words = {}
-            for i in range(len(words)):
-                self.__words[words[i]] = i
+            entities = f.readlines()
+            entities = [e.replace('\n', '') for e in entities]
+            entities = [e.lower() for e in entities]
+            entities = [e.split(';') for e in entities]
+            self.__forms = {}
+            self.__entities = []
+            self.__t_entities = []
+            self.__phrase_tokens = []
+            self.__no_entities = len(entities)
+            for i in range(len(entities)):
+                self.__entities.append(entities[i])
+                self.__t_entities.append([])
+                for form in entities[i]:
+                    t_form = nltk.TreebankWordTokenizer().tokenize(form)
+                    if len(t_form) > 1:
+                        self.__phrase_tokens.extend(t_form)
+                    self.__t_entities[i].append(t_form)
+                    self.__forms[form] = i
+            self.__phrase_tokens = list(set(self.__phrase_tokens))
 
-    def get_words(self):
-        return self.__words.keys()
+    def get_entities(self):
+        return self.__entities
 
-    def is_word(self, word):
-        w = word.lower()
-        if w in self.__words.keys():
-            return self.__words[w]
+    def get_t_entities(self):
+        return self.__t_entities
+
+    def get_phrase_tokens(self):
+        return self.__phrase_tokens
+
+    def get_entity(self, entity_id):
+        if -1 < entity_id < self.__no_entities:
+            return self.__entities[entity_id]
+        else:
+            return []
+
+    def get_t_entity(self, entity_id):
+        if -1 < entity_id < self.__no_entities:
+            return self.__t_entities[entity_id]
+        else:
+            return []
+
+    def phrase_is_entity(self, phrase):
+        w = phrase.lower()
+        if w in self.__forms.keys():
+            return self.__forms[w]
         else:
             return -1
 
+    def token_part_of_phrase(self, token):
+        return token.lower() in self.__phrase_tokens
+
+    def t_phrase_is_entity(self, phrase):
+        phrase = [t.lower() for t in phrase]
+        for i in range(self.__no_entities):
+            if phrase in self.__t_entities[i]:
+                return i
+        return -1

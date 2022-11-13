@@ -1,8 +1,9 @@
-United States of America
-Representative
-Election
+United States of America;United States;USA
+Representative;Representatives
+State;States
+Election;Elections
 Congress
-Senator
-President
+Senator;Senators
+President;Presidents
 House of Representatives
-Citizen
+Citizen;Citizens
