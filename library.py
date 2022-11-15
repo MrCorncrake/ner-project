@@ -8,8 +8,7 @@ class Library:
 
         with open(file) as f:
             entities = f.readlines()
-            entities = [e.replace('\n', '') for e in entities]
-            entities = [e.lower() for e in entities]
+            entities = [self._clear_token(e) for e in entities]
             entities = [e.split(';') for e in entities]
             self.__forms = {}
             self.__entities = []
@@ -26,6 +25,13 @@ class Library:
                     self.__t_entities[i].append(t_form)
                     self.__forms[form] = i
             self.__phrase_tokens = list(set(self.__phrase_tokens))
+
+    @staticmethod
+    def _clear_token(token):
+        token = token.replace('\n', '')
+        token = token.replace('.', '')
+        token = token.lower()
+        return token
 
     def get_entities(self):
         return self.__entities
@@ -49,17 +55,17 @@ class Library:
             return []
 
     def phrase_is_entity(self, phrase):
-        w = phrase.lower()
+        w = self._clear_token(phrase)
         if w in self.__forms.keys():
             return self.__forms[w]
         else:
             return -1
 
     def token_part_of_phrase(self, token):
-        return token.lower() in self.__phrase_tokens
+        return self._clear_token(token) in self.__phrase_tokens
 
     def t_phrase_is_entity(self, phrase):
-        phrase = [t.lower() for t in phrase]
+        phrase = [self._clear_token(t) for t in phrase]
         for i in range(self.__no_entities):
             if phrase in self.__t_entities[i]:
                 return i

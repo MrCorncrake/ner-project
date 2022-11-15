@@ -20,6 +20,7 @@ if __name__ == '__main__':
         print(t_word_list)
         print(lib.get_phrase_tokens())
         print('')
+        print(tokens)
 
         entity_positions = {}
         token_spans = list(zip(tokens, spans))
