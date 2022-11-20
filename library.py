@@ -8,6 +8,7 @@ class Library:
 
         with open(file) as f:
             entities = f.readlines()
+            entities = filter(lambda e: not e.startswith('#'), entities)
             entities = [self._clear_token(e) for e in entities]
             entities = [e.split(';') for e in entities]
             self.__forms = {}
