@@ -100,5 +100,5 @@ class Library:
                 entity_ids.append(entity.id)
         return entity_ids
 
-    def eval_t_phrase(self, t_phrase):
+    def eval_tokens(self, t_phrase):
         return [self.eval_token(t) for t in t_phrase]

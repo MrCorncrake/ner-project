@@ -62,7 +62,7 @@ class NamedEntityRecognizer:
                 if len(t_phrase) > 0:
                     # TODO: make it better
                     entity_ids = self._lib.t_phrase_is_entity(t_phrase.get()[0])
-                    eval_t_phrase = self._lib.eval_t_phrase(t_phrase.get()[0])
+                    eval_t_phrase = self._lib.eval_tokens(t_phrase.get()[0])
                     if len(entity_ids) > 0:
                         entity_ids.sort(key=lambda x: x[1], reverse=True)
                         entity_id = entity_ids[0][0]
