@@ -1,6 +1,40 @@
 import nltk
 
 
+def clear_token(token):
+    token = token.replace('\n', '')
+    token = token.replace('.', '')
+    token = token.lower()
+    return token
+
+
+class Entity:
+
+    def __init__(self, entity_id, forms):
+        self.id = entity_id
+        self.name = forms[0]
+        self.forms = forms
+        self.t_forms = []
+        tokens = []
+        for form in forms:
+            t_form = nltk.TreebankWordTokenizer().tokenize(form)
+            self.t_forms.append(t_form)
+            tokens.extend(t_form)
+        self.tokens = set(tokens)
+
+    def contains_token(self, token):
+        return token in self.tokens
+
+    def has_form(self, form):
+        return form in self.forms
+
+    def has_t_form(self, t_form):
+        return t_form in self.t_forms
+
+    def __str__(self):
+        return f"[{self.id}: {self.name}]"
+
+
 class Library:
 
     def __init__(self, file):
@@ -9,36 +43,20 @@ class Library:
         with open(file) as f:
             entities = f.readlines()
             entities = filter(lambda e: not e.startswith('#'), entities)
-            entities = [self._clear_token(e) for e in entities]
+            entities = [clear_token(e) for e in entities]
             entities = [e.split(';') for e in entities]
-            self.__forms = {}
+
             self.__entities = []
-            self.__t_entities = []
             self.__phrase_tokens = []
             self.__no_entities = len(entities)
             for i in range(len(entities)):
-                self.__entities.append(entities[i])
-                self.__t_entities.append([])
-                for form in entities[i]:
-                    t_form = nltk.TreebankWordTokenizer().tokenize(form)
-                    if len(t_form) > 1:
-                        self.__phrase_tokens.extend(t_form)
-                    self.__t_entities[i].append(t_form)
-                    self.__forms[form] = i
+                entity = Entity(i, entities[i])
+                self.__entities.append(entity)
+                self.__phrase_tokens.extend(entity.tokens)
             self.__phrase_tokens = list(set(self.__phrase_tokens))
-
-    @staticmethod
-    def _clear_token(token):
-        token = token.replace('\n', '')
-        token = token.replace('.', '')
-        token = token.lower()
-        return token
 
     def get_entities(self):
         return self.__entities
-
-    def get_t_entities(self):
-        return self.__t_entities
 
     def get_phrase_tokens(self):
         return self.__phrase_tokens
@@ -47,27 +65,40 @@ class Library:
         if -1 < entity_id < self.__no_entities:
             return self.__entities[entity_id]
         else:
-            return []
-
-    def get_t_entity(self, entity_id):
-        if -1 < entity_id < self.__no_entities:
-            return self.__t_entities[entity_id]
-        else:
-            return []
+            return None
 
     def phrase_is_entity(self, phrase):
-        w = self._clear_token(phrase)
-        if w in self.__forms.keys():
-            return self.__forms[w]
-        else:
-            return -1
+        w = clear_token(phrase)
+        for entity in self.__entities:
+            if w in entity.forms:
+                return entity.id
+        return -1
 
     def token_part_of_phrase(self, token):
-        return self._clear_token(token) in self.__phrase_tokens
+        return clear_token(token) in self.__phrase_tokens
 
     def t_phrase_is_entity(self, phrase):
-        phrase = [self._clear_token(t) for t in phrase]
-        for i in range(self.__no_entities):
-            if phrase in self.__t_entities[i]:
-                return i
-        return -1
+        phrase = [clear_token(t) for t in phrase]
+        entity_ids_with_max_len = []
+        for entity in self.__entities:
+            length = 0
+            valid = False
+            for form in entity.t_forms:
+                if all(elem in phrase for elem in form):
+                    valid = True
+                    if len(form) > length:
+                        length = len(form)
+                if valid:
+                    entity_ids_with_max_len.append((entity.id, length))
+        return entity_ids_with_max_len
+
+    def eval_token(self, token):
+        entity_ids = []
+        token = clear_token(token)
+        for entity in self.__entities:
+            if token in entity.tokens:
+                entity_ids.append(entity.id)
+        return entity_ids
+
+    def eval_t_phrase(self, t_phrase):
+        return [self.eval_token(t) for t in t_phrase]

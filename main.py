@@ -29,10 +29,6 @@ if __name__ == '__main__':
         results = ner.recognize_in(lines)
 
         # Results
-        print(lib.get_entities())
-        print(lib.get_t_entities())
-        print(lib.get_phrase_tokens())
-        print('')
         print(list(results.items()))
         print('')
         for key in results:

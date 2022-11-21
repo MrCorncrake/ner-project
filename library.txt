@@ -1,4 +1,4 @@
-United States of America;United States;USA
+USA;United States of America;United States
 Representative;Representatives
 State;States
 Election;Elections
@@ -9,4 +9,6 @@ House of Representatives
 Citizen;Citizens
 Member;Members
 Constitution;Constitutions
-#Supreme Court;Court of the United States;Court
+Supreme Court;Court
+Amendment;Amendments
+Vice-President;Vice President;Vice-Presidents;Vice Presidents
