@@ -2,16 +2,29 @@ import nltk
 from library import Library
 from window import window
 from ner import NamedEntityRecognizer
+import os, sys
 
 # nltk.download('punkt')
 nltk.download('stopwords')
 
 file = "const.txt"
 
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
 if __name__ == '__main__':
-    lib = Library("library.txt")
+    lib = Library(resource_path("library.txt"))
     ner = NamedEntityRecognizer(lib)
-    with open(file) as f:
+    with open(resource_path(file)) as f:
         lines = f.read()
         results = ner.recognize_in(lines)
 
