@@ -47,38 +47,39 @@ class NamedEntityRecognizer:
     def get_last_results(self):
         return self._entity_positions
 
+    def eval_token_phrase(self, entity_id, phrase):
+        t_phrase, span = phrase.get()
+        if self._lib.check_phrase_if_entity(entity_id, t_phrase):
+            word = self._lib.get_entity(entity_id).name
+            if word not in self._entity_positions:
+                self._entity_positions[word] = [(span[0], span[1])]
+            else:
+                self._entity_positions[word].append((span[0], span[1]))
+            return True
+        return False
+
     def recognize_in(self, lines):
         self._entity_positions = {}
 
         tokens = nltk.TreebankWordTokenizer().tokenize(lines)
         spans = list(nltk.TreebankWordTokenizer().span_tokenize(lines))
         token_spans = list(zip(tokens, spans))
+        ids = self._lib.eval_tokens(tokens)
+        token_spans_ids = list(zip(token_spans, ids))
 
-        t_phrase = TokenPhrase()
-        for token_span in token_spans:
-            if self._lib.token_part_of_phrase(token_span[0]):
-                t_phrase.add(token_span)
-            else:
-                if len(t_phrase) > 0:
-                    # TODO: make it better
-                    entity_ids = self._lib.t_phrase_is_entity(t_phrase.get()[0])
-                    eval_t_phrase = self._lib.eval_tokens(t_phrase.get()[0])
-                    if len(entity_ids) > 0:
-                        entity_ids.sort(key=lambda x: x[1], reverse=True)
-                        entity_id = entity_ids[0][0]
-                        length = len(eval_t_phrase)
-                        start = length
-                        end = -1
-                        for i in range(length):
-                            if entity_id in eval_t_phrase[i]:
-                                if i < start:
-                                    start = i
-                                if i > end:
-                                    end = i
-                        self._add_e_pos_if_valid(entity_id, t_phrase.get_sub_phrase(start, end))
-                    t_phrase = TokenPhrase()
-                entity_id = self._lib.phrase_is_entity(token_span[0])
-                self._add_e_pos_if_valid(entity_id, token_span)
+        phrases = {}
+        for token_span_ids in token_spans_ids:
+            token_span = token_span_ids[0]
+            ids = token_span_ids[1]
+            for entity_id in list(phrases):
+                if entity_id not in ids:
+                    phrase = phrases.pop(entity_id)
+                    self.eval_token_phrase(entity_id, phrase)
+                    # TODO: Fix overlapping entities
+            for entity_id in ids:
+                if entity_id not in phrases:
+                    phrases[entity_id] = TokenPhrase()
+                phrases[entity_id].add(token_span)
 
         return self._entity_positions
 

@@ -77,6 +77,11 @@ class Library:
     def token_part_of_phrase(self, token):
         return clear_token(token) in self.__phrase_tokens
 
+    def check_phrase_if_entity(self, entity_id, phrase):
+        phrase = [clear_token(t) for t in phrase]
+        entity = self.__entities[entity_id]
+        return phrase in entity.t_forms
+
     def t_phrase_is_entity(self, phrase):
         phrase = [clear_token(t) for t in phrase]
         entity_ids_with_max_len = []
@@ -100,5 +105,5 @@ class Library:
                 entity_ids.append(entity.id)
         return entity_ids
 
-    def eval_tokens(self, t_phrase):
-        return [self.eval_token(t) for t in t_phrase]
+    def eval_tokens(self, tokens):
+        return [self.eval_token(t) for t in tokens]
