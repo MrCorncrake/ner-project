@@ -7,6 +7,7 @@ from ner import NamedEntityRecognizer
 import os
 import sys
 from functools import reduce
+from test_spacy_ner import test_spacy_ner
 
 # nltk.download('punkt')
 nltk.download('stopwords')
@@ -30,8 +31,9 @@ if __name__ == '__main__':
     ner = NamedEntityRecognizer(lib)
     with open(resource_path(file)) as f:
         lines = f.read()
-        results = ner.recognize_in(lines)
+        # results = ner.recognize_in(lines)
 
+        results = test_spacy_ner()
         # Results
         print(list(results.items()))
         print('')
@@ -70,7 +72,8 @@ if __name__ == '__main__':
                     if found == 0:
                         all_letters += word_position[1] - word_position[0]
             else:
-                all_letters += reduce(lambda total, position: total + position[1] - position[0], word[1])
+                print(all_letters)
+                all_letters += reduce(lambda total, position: total + position[1] - position[0], word[1], 0)
 
         print("word accuracy: " + str(total_found / total_are))
         print("letter accuracy: " + str(matching_letters / all_letters))
