@@ -1,5 +1,4 @@
 import nltk
-import itertools
 from library import Library, Entity
 
 
