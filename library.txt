@@ -11,7 +11,7 @@ Member;Members
 Constitution;Constitutions
 Senate
 Section
-Person;People
+Person;People;Persons
 Qualifications
 Union
 #Amendment;Amendments
