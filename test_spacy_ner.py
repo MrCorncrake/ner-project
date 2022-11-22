@@ -1,5 +1,6 @@
 import spacy
 
+
 def test_spacy_ner():
     text_file = open("const_evaluation.txt", "r").read()
 
@@ -10,7 +11,7 @@ def test_spacy_ner():
     word_list = {}
 
     groupings = {
-        "united states of america": ["united states", "usa"],
+        "usa": ["united states", "united states of america"],
         "representative": ["representatives"],
         "state": ["states"],
         "election": ["elections"],
@@ -21,11 +22,11 @@ def test_spacy_ner():
         "citizen": ["citizens"],
         "member": ["members"],
         "constitution": ["constitutions"],
-        "supreme court": ["court of the united states", "court"],
         "senate": [],
         "section": [],
         "person": ["people"],
-        "qualifications": []
+        "qualifications": [],
+        "union": []
     }
 
     for ent in doc.ents:

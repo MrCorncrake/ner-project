@@ -1,6 +1,6 @@
 import nltk
 
-from evaluationData import evaluationData
+from evaluation_data import evaluation_data
 from library import Library
 from window import window
 from ner import NamedEntityRecognizer
@@ -31,9 +31,10 @@ if __name__ == '__main__':
     ner = NamedEntityRecognizer(lib)
     with open(resource_path(file)) as f:
         lines = f.read()
-        # results = ner.recognize_in(lines)
 
-        results = test_spacy_ner()
+        results = ner.recognize_in(lines)
+        # results = test_spacy_ner()
+
         # Results
         print(list(results.items()))
         print('')
@@ -43,7 +44,7 @@ if __name__ == '__main__':
         total_are = 0
         total_found = 0
 
-        for word in evaluationData:
+        for word in evaluation_data:
             total_are += len(word[1])
             print(word[0] + ": " + str(len(word[1])))
             if word[0] in results:
@@ -55,7 +56,7 @@ if __name__ == '__main__':
         all_letters = 0
         matching_letters = 0
 
-        for word in evaluationData:
+        for word in evaluation_data:
             if word[0] in results:
                 for word_position in word[1]:
                     found = 0

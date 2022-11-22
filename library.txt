@@ -9,12 +9,11 @@ House of Representatives
 Citizen;Citizens
 Member;Members
 Constitution;Constitutions
-#Amendment;Amendments
-#Vice-President;Vice President;Vice-Presidents;Vice Presidents
-#Supreme Court;Court of the United States;Court
 Senate
 Section
 Person;People
 Qualifications
-Representative;Representatives
 Union
+#Amendment;Amendments
+#Vice-President;Vice President;Vice-Presidents;Vice Presidents
+#Supreme Court;Court of the United States;Court
