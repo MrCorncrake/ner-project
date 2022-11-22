@@ -1,4 +1,5 @@
 import nltk
+import itertools
 from library import Library, Entity
 
 
@@ -58,7 +59,7 @@ class NamedEntityRecognizer:
             return True
         return False
 
-    def recognize_in(self, lines):
+    def recognize_in(self, lines, overlapping=False):
         self._entity_positions = {}
 
         tokens = nltk.TreebankWordTokenizer().tokenize(lines)
@@ -68,19 +69,27 @@ class NamedEntityRecognizer:
         token_spans_ids = list(zip(token_spans, ids))
 
         phrases = {}
+        new_phrases = []
         for token_span_ids in token_spans_ids:
             token_span = token_span_ids[0]
             ids = token_span_ids[1]
             for entity_id in list(phrases):
                 if entity_id not in ids:
                     phrase = phrases.pop(entity_id)
+                    new_phrases.append((entity_id, phrase))
+            if len(phrases) == 0:
+                if overlapping:
+                    for entity_id, phrase in new_phrases:
+                        self.eval_token_phrase(entity_id, phrase)
+                elif len(new_phrases) > 0:
+                    new_phrases.sort(key=lambda id_phrase: len(id_phrase[1]), reverse=True)
+                    entity_id, phrase = new_phrases[0]
                     self.eval_token_phrase(entity_id, phrase)
-                    # TODO: Fix overlapping entities
+                new_phrases = []
             for entity_id in ids:
                 if entity_id not in phrases:
                     phrases[entity_id] = TokenPhrase()
                 phrases[entity_id].add(token_span)
-
         return self._entity_positions
 
 
