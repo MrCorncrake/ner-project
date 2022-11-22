@@ -6,13 +6,11 @@ from library import Library, Entity
 class TokenPhrase:
 
     def __init__(self):
-        self.t_spans = []
         self.phrase = []
         self.start = -1
         self.end = -1
 
     def add(self, token_span: (str, (int, int))):
-        self.t_spans.append(token_span)
         self.phrase.append(token_span[0])
         if self.start < 0:
             self.start = token_span[1][0]
@@ -20,12 +18,6 @@ class TokenPhrase:
 
     def get(self):
         return self.phrase, (self.start, self.end)
-
-    def get_sub_phrase(self, start, end):
-        phrase = []
-        for i in range(start, end):
-            phrase.append(self.phrase[i])
-        return phrase, (self.t_spans[start][1][0], self.t_spans[end][1][1])
 
     def __len__(self):
         return len(self.phrase)
@@ -37,20 +29,12 @@ class NamedEntityRecognizer:
         self._lib = lib
         self._entity_positions = {}
 
-    def _add_e_pos_if_valid(self, entity_id, token_span):
-        if entity_id != -1:
-            word = self._lib.get_entity(entity_id).name
-            if word not in self._entity_positions:
-                self._entity_positions[word] = [(token_span[1][0], token_span[1][1])]
-            else:
-                self._entity_positions[word].append((token_span[1][0], token_span[1][1]))
-
     def get_last_results(self):
         return self._entity_positions
 
     def eval_token_phrase(self, entity_id, phrase):
         t_phrase, span = phrase.get()
-        if self._lib.check_phrase_if_entity(entity_id, t_phrase):
+        if self._lib.phrase_is_entity(entity_id, t_phrase):
             word = self._lib.get_entity(entity_id).name
             if word not in self._entity_positions:
                 self._entity_positions[word] = [(span[0], span[1])]

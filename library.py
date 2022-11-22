@@ -47,19 +47,13 @@ class Library:
             entities = [e.split(';') for e in entities]
 
             self.__entities = []
-            self.__phrase_tokens = []
             self.__no_entities = len(entities)
             for i in range(len(entities)):
                 entity = Entity(i, entities[i])
                 self.__entities.append(entity)
-                self.__phrase_tokens.extend(entity.tokens)
-            self.__phrase_tokens = list(set(self.__phrase_tokens))
 
     def get_entities(self):
         return self.__entities
-
-    def get_phrase_tokens(self):
-        return self.__phrase_tokens
 
     def get_entity(self, entity_id):
         if -1 < entity_id < self.__no_entities:
@@ -67,35 +61,10 @@ class Library:
         else:
             return None
 
-    def phrase_is_entity(self, phrase):
-        w = clear_token(phrase)
-        for entity in self.__entities:
-            if w in entity.forms:
-                return entity.id
-        return -1
-
-    def token_part_of_phrase(self, token):
-        return clear_token(token) in self.__phrase_tokens
-
-    def check_phrase_if_entity(self, entity_id, phrase):
+    def phrase_is_entity(self, entity_id, phrase):
         phrase = [clear_token(t) for t in phrase]
         entity = self.__entities[entity_id]
         return phrase in entity.t_forms
-
-    def t_phrase_is_entity(self, phrase):
-        phrase = [clear_token(t) for t in phrase]
-        entity_ids_with_max_len = []
-        for entity in self.__entities:
-            length = 0
-            valid = False
-            for form in entity.t_forms:
-                if all(elem in phrase for elem in form):
-                    valid = True
-                    if len(form) > length:
-                        length = len(form)
-                if valid:
-                    entity_ids_with_max_len.append((entity.id, length))
-        return entity_ids_with_max_len
 
     def eval_token(self, token):
         entity_ids = []
