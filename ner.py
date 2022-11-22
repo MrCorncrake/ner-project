@@ -78,13 +78,11 @@ class NamedEntityRecognizer:
                     phrase = phrases.pop(entity_id)
                     new_phrases.append((entity_id, phrase))
             if len(phrases) == 0:
-                if overlapping:
-                    for entity_id, phrase in new_phrases:
-                        self.eval_token_phrase(entity_id, phrase)
-                elif len(new_phrases) > 0:
-                    new_phrases.sort(key=lambda id_phrase: len(id_phrase[1]), reverse=True)
-                    entity_id, phrase = new_phrases[0]
-                    self.eval_token_phrase(entity_id, phrase)
+                new_phrases.sort(key=lambda id_phrase: len(id_phrase[1]), reverse=True)
+                for entity_id, phrase in new_phrases:
+                    result = self.eval_token_phrase(entity_id, phrase)
+                    if result and not overlapping:
+                        break
                 new_phrases = []
             for entity_id in ids:
                 if entity_id not in phrases:
