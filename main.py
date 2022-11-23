@@ -32,7 +32,7 @@ if __name__ == '__main__':
     with open(resource_path(file)) as f:
         lines = f.read()
 
-        results = ner.recognize_in(lines)
+        results = ner.recognize_in(lines, overlapping=False)
         # results = test_spacy_ner()
 
         # Results
