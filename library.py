@@ -1,7 +1,7 @@
 import nltk
 
 
-def clear_token(token):
+def _clear_token(token):
     token = token.replace('\n', '')
     token = token.replace('.', '')
     token = token.lower()
@@ -22,17 +22,17 @@ class Entity:
             tokens.extend(t_form)
         self.tokens = set(tokens)
 
-    def contains_token(self, token):
+    def contains_token(self, token) -> bool:
         return token in self.tokens
 
-    def has_form(self, form):
+    def has_form(self, form) -> bool:
         return form in self.forms
 
-    def has_t_form(self, t_form):
+    def has_t_form(self, t_form) -> bool:
         return t_form in self.t_forms
 
     def __str__(self):
-        return f"[{self.id}: {self.name}]"
+        return '[' + self.id + ': ' + self.name + ']'
 
 
 class Library:
@@ -43,7 +43,7 @@ class Library:
         with open(file) as f:
             entities = f.readlines()
             entities = filter(lambda e: not e.startswith('#'), entities)
-            entities = [clear_token(e) for e in entities]
+            entities = [_clear_token(e) for e in entities]
             entities = [e.split(';') for e in entities]
 
             self.__entities = []
@@ -52,27 +52,27 @@ class Library:
                 entity = Entity(i, entities[i])
                 self.__entities.append(entity)
 
-    def get_entities(self):
+    def get_entities(self) -> [Entity]:
         return self.__entities
 
-    def get_entity(self, entity_id):
+    def get_entity(self, entity_id) -> Entity or None:
         if -1 < entity_id < self.__no_entities:
             return self.__entities[entity_id]
         else:
             return None
 
-    def phrase_is_entity(self, entity_id, phrase):
-        phrase = [clear_token(t) for t in phrase]
+    def tokens_are_entity(self, tokens, entity_id) -> bool:
+        tokens = [_clear_token(t) for t in tokens]
         entity = self.__entities[entity_id]
-        return phrase in entity.t_forms
+        return entity.has_t_form(tokens)
 
-    def eval_token(self, token):
+    def eval_token(self, token) -> [int]:
         entity_ids = []
-        token = clear_token(token)
+        token = _clear_token(token)
         for entity in self.__entities:
-            if token in entity.tokens:
+            if entity.contains_token(token):
                 entity_ids.append(entity.id)
         return entity_ids
 
-    def eval_tokens(self, tokens):
+    def eval_tokens(self, tokens) -> [[int]]:
         return [self.eval_token(t) for t in tokens]
