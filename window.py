@@ -2,7 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import random
 
-def window(text, foundWords):
+
+def window(text: str, found_words: {str: [(int, int)]}):
     root = Tk()
     root.title("Found words in text")
     # mainframe = ttk.Frame(root, padding="3 3 12 12")
@@ -17,7 +18,7 @@ def window(text, foundWords):
     def show_info(text, color):
         label.configure(text=text, fg=color, bg="#a8d3ff")
 
-    for word in foundWords:
+    for word in found_words:
         hexColor = "#"+''.join([random.choice('AB0123456789') for i in range(6)])
         for coords in word[1]:
             tagID = word[0] + str(coords)

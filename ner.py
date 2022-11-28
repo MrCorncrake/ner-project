@@ -22,13 +22,16 @@ class Entity:
             tokens.extend(t_form)
         self.tokens = set(tokens)
 
-    def contains_token(self, token) -> bool:
+    def contains_token(self, token: str) -> bool:
+        """ Returns True if the entity can contain provided token """
         return token in self.tokens
 
-    def has_form(self, form) -> bool:
+    def has_form(self, form: str) -> bool:
+        """ Returns True if the entity can be expressed by the provided form """
         return form in self.forms
 
-    def has_t_form(self, t_form) -> bool:
+    def has_t_form(self, t_form: [str]) -> bool:
+        """ Returns True if the entity can be expressed by the provided tokenized form """
         return t_form in self.t_forms
 
     def __str__(self):
@@ -53,20 +56,24 @@ class EntityLibrary:
                 self.__entities.append(entity)
 
     def get_entities(self) -> [Entity]:
+        """ Returns all the entities in the library """
         return self.__entities
 
     def get_entity(self, entity_id) -> Entity or None:
+        """ Returns entity with given entity_id """
         if -1 < entity_id < self.__no_entities:
             return self.__entities[entity_id]
         else:
             return None
 
     def tokens_are_entity(self, tokens, entity_id) -> bool:
+        """ Checks if the given list of tokens represents entity with provided entity_id """
         tokens = [_clear_token(t) for t in tokens]
         entity = self.__entities[entity_id]
         return entity.has_t_form(tokens)
 
     def eval_token(self, token) -> [int]:
+        """ Returns list of ids of entities that the token can be a part of """
         entity_ids = []
         token = _clear_token(token)
         for entity in self.__entities:
@@ -75,6 +82,7 @@ class EntityLibrary:
         return entity_ids
 
     def eval_tokens(self, tokens) -> [[int]]:
+        """ Evaluates all the tokens from the list using eval_token method """
         return [self.eval_token(t) for t in tokens]
 
 
@@ -86,12 +94,14 @@ class _TokenPhrase:
         self.end = -1
 
     def add(self, token_span: (str, (int, int))):
+        """ Adds token span to the token phrase """
         self.phrase.append(token_span[0])
         if self.start < 0:
             self.start = token_span[1][0]
         self.end = token_span[1][1]
 
     def get(self) -> ([str], (int, int)):
+        """ Returns complete token phrase and its total span """
         return self.phrase, (self.start, self.end)
 
     def __len__(self):
@@ -116,13 +126,19 @@ class NamedEntityRecognizer:
         return False
 
     def get_last_results(self) -> {str: [(int, int)]}:
+        """ Returns last result of recognize_in method call """
         return self._entity_positions
 
-    def recognize_in(self, lines, overlapping=False) -> {str: [(int, int)]}:
+    def recognize_in(self, text, overlapping=False) -> {str: [(int, int)]}:
+        """ Recognizes Entities from provided EntityLibrary in the given text.
+            Returns dictionary that maps entity names with its locations within the text.
+            If overlapping is set to True overlapping entities will be returned.
+            If overlapping is set to False only the longest complete entity will be returned.
+        """
         self._entity_positions = {}
 
-        tokens = nltk.TreebankWordTokenizer().tokenize(lines)
-        spans = list(nltk.TreebankWordTokenizer().span_tokenize(lines))
+        tokens = nltk.TreebankWordTokenizer().tokenize(text)
+        spans = list(nltk.TreebankWordTokenizer().span_tokenize(text))
         token_spans = list(zip(tokens, spans))
         ids = self._lib.eval_tokens(tokens)
         token_spans_ids = list(zip(token_spans, ids))
