@@ -9,7 +9,7 @@ evaluation_data = [
     ('havelock', [(328, 336)]),
     ('wellington', [(338, 348), (1237, 1247)]),
     ('picton', [(350, 356)]),
-    ('marlborough', [358, 369]),
+    ('marlborough', [(358, 369)]),
     ('nelson', [(371, 377)]),
     ('collingwood', [(379, 390)]),
     ('wyndham', [(396, 403)]),
