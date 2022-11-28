@@ -1,9 +1,8 @@
 import nltk
 
 from evaluation_data import evaluation_data
-from library import Library
 from window import window
-from ner import NamedEntityRecognizer
+from ner import EntityLibrary, NamedEntityRecognizer
 import os
 import sys
 from functools import reduce
@@ -27,7 +26,7 @@ def resource_path(relative_path):
 
 
 if __name__ == '__main__':
-    lib = Library(resource_path("library.txt"))
+    lib = EntityLibrary(resource_path("library.txt"))
     ner = NamedEntityRecognizer(lib)
     with open(resource_path(file)) as f:
         lines = f.read()
