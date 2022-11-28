@@ -43,7 +43,7 @@ class EntityLibrary:
     def __init__(self, file):
         self.__file = file
 
-        with open(file) as f:
+        with open(file, encoding='UTF-8') as f:
             entities = f.readlines()
             entities = filter(lambda e: not e.startswith('#'), entities)
             entities = [_clear_token(e) for e in entities]

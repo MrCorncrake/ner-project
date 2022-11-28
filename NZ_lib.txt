@@ -3641,7 +3641,7 @@ South Branch Anatori River;South Branch
 South Bay;Bullen Cove
 South Bank
 Bay of Plenty;Baie de l'Abondance;Bay of Plenty;Bay of Plenty Region;Bay of Plenty Toa-khu;Bay of Plenty Tōa-khu;Bay of Plenty eskualdea;Bej of Plenti;Bej uf Plenti;Bej-of-Plenti;Te Moana-a-Toi;Wilayah Bay of Plenty;Zaliv Plenti;beiobeupeullenti jibang;pu lun di wan da qu;Бей оф Пленті;Бей ъф Пленти;Бей-оф-Пленти;Залив Пленти;ביי אוף פלנטי;بے آف پلینٹی علاقہ;ბეი-ოვ-პლენტის რეგიონი;ベイ・オブ・プレンティ地方;普伦蒂湾大区;베이오브플렌티 지방
-South Auckland;Auckland
+South Auckland
 South Arm
 South Arm
 South Arm
@@ -4396,7 +4396,7 @@ Roe Burn
 Roebuck Creek
 Lake Roe
 Rods Creek
-Rodney County;Rodney
+Rodney County
 Cape Rodney;Rodney Point
 Rodney
 Roding River
@@ -4919,7 +4919,7 @@ Rahatia
 Raglan Range
 Raglan Harbour;Whaingaroa
 Raglan Creek
-Raglan County;Raglan
+Raglan County
 Raglan;RAG
 Raggedy Range
 Raggedy Hill
@@ -5786,7 +5786,7 @@ Pegasus Bay;Cook's Mistake
 Port Pegasus;South Port
 Peep o'Day
 Peel Stream
-Peel Range;Peel
+Peel Range
 Peel Forest
 Mount Peel
 Mount Peel
@@ -8336,7 +8336,7 @@ Maroa Stream
 Marlow
 Marlborough Statistical Area
 Marlborough Sounds;Marborough Sounds
-Marlborough County;Marlborough
+Marlborough County
 Marlborough;Marlboro;Marlborough;Marlborough Region;Marlborough Toa-khu;Marlborough Tōa-khu;Marlborough pa New Zealand;Marlborough på New Zealand;Tauihu;Wilayah Marlborough;ma er bao;malbeoleo jibang;marlboros regioni;maruboro de fang;Марлборо;ضلع مارلبرا;مارلبورو علاقہ;მარლბოროს რეგიონი;マールボロ地方;马尔堡;말버러 지방
 Marks Range
 Mount Marks
