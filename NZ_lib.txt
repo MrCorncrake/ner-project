@@ -57947,7 +57947,7 @@ Cullensville
 Cutters Bay
 Karaka Bay
 Tom Canes Bay
-Coles Bay (Waingaro Bay)
+Coles Bay;Waingaro Bay
 Uruti Bay
 Kaikoura Bay
 Whataroa Bay
@@ -57966,7 +57966,7 @@ Oyster Bay
 Hitaua Bay
 Kaitapeha Bay
 Double Bay
-Queen Charlotte Sound (Totaranui)
+Queen Charlotte Sound;Totaranui
 Monkey Bay
 Green Bay
 Ahuriri Bay
@@ -58043,8 +58043,6 @@ Island Point
 Te Mahia
 Onahau
 Mount Bolton
-Queen Charlotte Walking Track
-Queen Charlotte Walking Track
 Queen Charlotte Walking Track
 Portage
 Black Rock
@@ -58456,7 +58454,7 @@ Te Waro Point
 Oneroa Bay
 Te Ta Point
 Ongange Creek
-Matihe Point (Beacon Point)
+Matihe Point;Beacon Point
 Opuna Bay
 Kotiroreka Bay
 Ru Point
@@ -58526,7 +58524,7 @@ Hoteo
 Araparera
 Stables Landing
 Hoteo North
-Armstrong Kauri  Reserve
+Armstrong Kauri Reserve
 Kaitoto Stream
 Mangatu Stream
 Ngamotu
@@ -58736,8 +58734,6 @@ Waimaru Stream
 Anchor Bay
 Christian Bay
 Prospect Bay
-Mahurangi River (Left Branch)
-Mahurangi River (Right Branch)
 Mahurangi River
 Goldsworthy Bay
 North Channel
@@ -58783,7 +58779,7 @@ Te Taumutu Point
 Torkington Bay
 Ti Point Reserve
 Omaha Cove
-Panetiki Island (The Outpost)
+Panetiki Island;The Outpost
 Te Kie Point
 Karamuroa Point
 Pukenihinihi Point
@@ -58848,17 +58844,17 @@ Accord Point
 Stony Hill
 Dispute Cove
 Boyds Hill
-Beehive Island (Taungamaro Island)
+Beehive Island;Taungamaro Island
 Archway Island
 Elizabeth Point
 South Cove
 Percy Point
 Little Markham Island
-Challenger Island (Little Kawau Island)
+Challenger Island;Little Kawau Island
 Kawati Point
 Edwards Point
 Beaumont Point
-Pembles Island (Tangaroa)
+Pembles Island;Tangaroa
 Sharp Point
 Tawharanui
 Sandspit
@@ -58899,7 +58895,7 @@ Big Omaha
 Takangaroa Island
 Rabbit Island
 Scandretts Bay
-Martello Rock (Ruakoura)
+Martello Rock;Ruakoura
 Mansion House Bay
 Farmer Bay
 Ladys Bay
@@ -59128,7 +59124,7 @@ Mitchelltown
 Wright Hill
 Karori West
 Long Gully
-Pariwhero / Red Rocks
+Pariwhero;Red Rocks
 Te Kopahou
 Red Rocks
 Riverslea
@@ -59366,7 +59362,7 @@ Matahui Point
 Puketutu Point
 Tirohanga Point
 Te Matai
-Matakana Point (Flax Point)
+Matakana Point;Flax Point
 Tahunamanu Island
 Paeroa Point
 Ngakautuakina Point
@@ -59391,7 +59387,7 @@ Otumoetai Pa
 Judea
 Tauranga Entrance
 Omanu
-Motuopae Island (Peach Island)
+Motuopae Island;Peach Island
 Omanu Beach
 Te Maunga
 Matapihi
@@ -59406,7 +59402,7 @@ Waitao
 Ngapeke
 Welcome Bay
 Hairini
-Motuopuhi Island (Rat Island)
+Motuopuhi Island;Rat Island
 Maungatapu
 Manukatuata Stream
 Waipehi Stream
@@ -59455,7 +59451,7 @@ Tiki Tiki Stream
 Kaipo River
 Rouiti Stream
 Rangipuka Stream
-Ruatea (Paimai) Stream
+Ruatea Stream;Paimai Stream
 Cascade Stream
 Tauranga Taupo River
 Kakapo Stream
@@ -59479,7 +59475,7 @@ Te Tanae Rangiharakeke Stream
 Oamaru River
 Waitawhero Stream
 Purungetungetu Stream
-Ngaawapurua (Harkness) Stream
+Ngaawapurua Stream;Harkness Stream
 Tapapa Stream
 Rere Stream
 Rahu Stream
@@ -59569,14 +59565,14 @@ Ecology Stream
 Te Piri Stream
 Mangamaire River
 Mangataramea Stream
-Panoko Stream (Gold Creek)
+Panoko Stream;Gold Creek
 Waiwherowhero Stream
 Whakapapa Stream
 Waingakia Stream
 Taruarau River
 Stony Creek
 Rocky Creek
-Ngaawapurua (Harkness) Stream
+Ngaawapurua Stream;Harkness Stream
 Pukeohikarua Stream
 Omarukokere Stream
 Omarukokere Stream
@@ -59609,7 +59605,7 @@ Mangakotuku Stream
 Raoraoroa Stream
 Taruarau River
 Lake Horotea
-Ngawaiawhitu (Poverty Creek) Stream
+Ngawaiawhitu Stream;Poverty Creek Stream
 Peters Creek
 Oturua Stream
 Makahikatoa Stream
@@ -59734,11 +59730,11 @@ Hogget
 Blowhard Ridge
 Lowry Shelter
 Blowhard Bush
-Miroroa (Cattle Hill)
+Miroroa;Cattle Hill
 Kuripapango
 Robson Lodge
 Sika Lodge
-Kohinga (Bonny Mary)
+Kohinga;Bonny Mary
 BURNS RANGE
 KAIKOMATA RANGE
 Gentle Annie
@@ -59748,7 +59744,7 @@ Smith-Russell Track
 BACK RIDGE
 Bishops Rock
 Studholme Saddle
-Boyds Bush (Kaimoko)
+Boyds Bush;Kaimoko
 Boyd Homestead
 Timahanga
 Te Ahimanawa
@@ -59811,7 +59807,7 @@ Blue Creek
 Makokomiko East Stream
 Waiakaha Stream
 Ngaruroro River
-Cedars Hut (Blowfly)
+Cedars Hut;Blowfly
 Whanaukini Stream
 Poporangi Stream
 Poporangi Stream
@@ -59878,7 +59874,7 @@ Otamauri
 Branstone
 Westmere
 Candacraig
-Whanawhana (The Fort)
+Whanawhana;The Fort
 Kohatunui
 Awapai
 Awapai
@@ -59962,7 +59958,7 @@ Tupari
 Piopio
 Totara Spur
 Parks Peak Hut
-Lake Colenso (Kokopunui)
+Lake Colenso;Kokopunui
 Pohatuhaha
 Omahaki Stream
 Kaumatua Hut
@@ -60271,7 +60267,7 @@ Mangahei Stream
 Manawatu River
 Mahangaiti Lake
 Tamatea
-Mahuraunui Stream (Stoney Creek)
+Mahuraunui Stream;Stoney Creek
 Manawatu River
 Tukituki River
 San Hill
@@ -61403,7 +61399,7 @@ Te Ngawa
 Parimahu
 Blackhead Point
 Taikura
-Taikorai (Twin Rocks)
+Taikorai;Twin Rocks
 Huatokitoki Stream
 Huatoki
 Parkdale
@@ -61907,7 +61903,7 @@ Te Kahika
 Okepuha
 Hawini Rocks
 Upukuotangata Point
-Te Muka (Stalactite Falls)
+Te Muka;Stalactite Falls
 Ahimanawa
 Reef
 Rahuimokairoa
@@ -61972,7 +61968,7 @@ Whangawehi
 Pongaroa
 Waiwhara Stream
 Wainui
-Table Cape (Kahutara Point)
+Table Cape;Kahutara Point
 Papapiro
 Waiherere Stream
 Whareongaonga Bay
@@ -62412,7 +62408,7 @@ Maungaharuru Ridge Track
 Taihoa
 Abut Head
 Ahoroa Rock
-Albert Reef (Nukutaurua)
+Albert Reef;Nukutaurua
 Alford
 Arataura Point
 Archer Point
@@ -62444,9 +62440,9 @@ Connors Creek Hut
 Crater Head
 Dans Hill
 Desolation
-Dog Island (Motuwhangaikirehe Island)
+Dog Island;Motuwhangaikirehe Island
 Dog Spur Creek
-Dry Creek (Little Man River)
+Dry Creek;Little Man River
 Duff Islands
 Miko
 Otehake River East Branch
@@ -62552,7 +62548,7 @@ MOKIHINUI FOREST
 Mokoreta River
 Morepork Stream
 Motukopake Island
-Motukaramea Island (Kaikai Island)
+Motukaramea Island;Kaikai Island
 Tiheru Island;The Dog
 Te Arakanihi
 Mount Bledisloe
@@ -62567,7 +62563,7 @@ East Peak
 Boulder Bay
 Sulphur Bay
 Moutohora Island
-Nga Kiore (Jag Rocks)
+Nga Kiore;Jag Rocks
 Ngamangu Pa
 Kiekie Cove
 Ngatokaparangi Islands
@@ -62580,7 +62576,7 @@ Mimihau Stream North Branch
 Waikoau River North Branch
 Titirangi Point
 Murimotu Island
-North Cape (Otou)
+North Cape;Otou
 Whakarongorua Point
 Mangakara Bay
 O Wiwi Ku
@@ -62682,7 +62678,7 @@ Soda Gully
 Solitary Cone
 Somnus
 Mimihau Stream South Branch
-South East Bay (Opo)
+South East Bay;Opo Bay
 Specimen Creek
 Bray Creek
 Specimen Creek
@@ -62692,14 +62688,14 @@ Spothill
 Spring Brook
 Surat Bay
 Table Rock
-Nathan Point (Ohaua)
+Nathan Point;Ohaua
 Takatahi
 Takitu
 TANGIMOANA FOREST
 Tarapatiki Stream
 Wattle Bay
 Tipitai Point
-Taratara Point (Cake Island)
+Taratara Point;Cake Island
 Okahu
 Tarawhaturoa Stream
 Tarewakoura Hill
@@ -62721,7 +62717,7 @@ Te Ika a Piua Stream
 Te Kakaho Channel
 Pukerewa Stream
 Te Kawau Pa
-Te Nunuhe Rock (Whale Rock)
+Te Nunuhe Rock;Whale Rock
 Matakowhai Point
 Te Tuhiatewehi Point
 Te Waiamaru Stream
@@ -62742,7 +62738,7 @@ Tomokanga Pa
 Tor Hill
 Toupiroroa Range
 Triplets
-Tu Araiawa Island (Fin Island)
+Tu Araiawa Island;Fin Island
 Tuapu Island
 Tuhua Reef
 Tumutu Point
@@ -62815,8 +62811,8 @@ Tramway Creek
 Matamau
 Leven
 Mangapuaka Stream Reserve
-Codfish Island (Whenuahou)
-Rangitoto ke te Tonga (D'Urville Island)
+Codfish Island;Whenuahou
+Rangitoto ke te Tonga;D'Urville Island
 Motuharakeke Island
 Burgess Island;Pokohinu
 Fanal Island;Motukino
@@ -62916,7 +62912,7 @@ Umukorora Bay
 Ruapara Bay
 Papakaraka Bay
 Mokopeke Bay
-Queen Charlotte (Totaranui)
+Queen Charlotte;Totaranui
 Te Aroha Bay
 Puriri Bay
 Fitzgerald Bay
@@ -62998,7 +62994,7 @@ Waimatete Bay
 Anakakata Bay
 Cannibal Cove
 Captain Cook's Monument
-Ship Cove (Meretoto);Meretoto;Ship Cove
+Ship Cove;Meretoto;Ship Cove
 Otaki
 Cape Lambert
 Akina
@@ -63120,35 +63116,8 @@ Mount Nimrod/Kaumira
 Selwyn River/Waikirikiri
 Karaka Tonga Stream
 Craigie Burn
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
 Clutha River/Mata-Au;Clutha;Mata Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
-Clutha River/Mata-Au
 SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-SOUTHERN ALPS/KA TIRITIRI O TE MOANA
-Dart River/Te Awa Whakatipu
-Dart River/Te Awa Whakatipu
-Dart River/Te Awa Whakatipu
-Dart River/Te Awa Whakatipu
 Dart River/Te Awa Whakatipu
 Haast Pass/Tioripatea
 Kurow Hill/Te Kohurau
@@ -63208,13 +63177,7 @@ Skipton Reserve
 Te Ngawai Reserve
 Mount Nimrod Reserve
 Pareora River Reserve
-RUATORIA FOREST
-RUATORIA FOREST
-RUATORIA FOREST
 Mokota Stream
-RUATORIA FOREST
-RUATORIA FOREST
-RUATORIA FOREST
 RUATORIA FOREST
 MANUTAHI FOREST
 MATA FOREST
@@ -63236,7 +63199,7 @@ Ten Mile Creek/Waianiwaniwa
 The Doughboy/Kokiraki
 Lake Alabaster/Wawahi Waka
 Hollyford River/Whakatipu Ka Tuka
-Shag River (Waihemo)
+Shag River;Waihemo
 Makara
 Elsthorpe Reserve
 Elsthorpe Reserve
@@ -63300,7 +63263,7 @@ Pororari Lagoon
 Ngaiotonga Reserve
 Boat Harbour
 Rangatira Creek
-Raratoka Island (Centre Island)
+Raratoka Island;Centre Island
 Forest Hill Reserve
 Kongutu Reserve
 Underwood
@@ -63402,12 +63365,12 @@ Te Hokowhitu
 Penguin Island
 Rabbit Island
 Slipper Island Light
-Whakataratara (Maori Chief)
+Whakataratara;Maori Chief
 Te Ohineiti
 Awatukoro Point
-Western Bay (Omapu)
+Western Bay;Omapu
 Waikawa Point
-North West Bay (Oira)
+North West Bay;Oira Bay
 Whatipu Point
 Moewai Bay
 Motuoneone Island
@@ -63426,7 +63389,7 @@ Otehake Hut
 Olderog Bivouac
 Scottys Bivouac
 Pyramid Rock
-Mahuki Island (Anvil Island)
+Mahuki Island;Anvil Island
 Whangaparapara Harbour
 Copper Mine Bay
 Lighthouse Point
@@ -63476,7 +63439,6 @@ Okohua Stream
 Hingaia
 Glendowns
 Rabbit Flat
-Dry Creek (Little Man River)
 Whakaoma Stream
 Pukemoe
 Te Whau o te Marau
@@ -63514,12 +63476,12 @@ Hinge Bay
 Huia
 Bryan Bay
 Foster Bay
-Te Rae o Kahu (Guys Cliff)
+Te Rae o Kahu;Guys Cliff
 O Ruru tumaro
 Ohinerau Bay
 Nga Taikorapa
 Maara whiu pungarehu
-Calypso Bay (Otamarau Bay)
+Calypso Bay;Otamarau Bay
 Matai takiara
 Tamahine o Karewa Peak
 Turaerae
@@ -63777,8 +63739,7 @@ Woodlands
 Awaroa
 Kashmir
 Golden Meadows
-Kenley Green
-Kenley Green (The Cottage)
+Kenley Green;The Cottage
 Tangarewai
 Papawai
 Stoney Broke
@@ -63892,7 +63853,7 @@ Whareata Bay
 Starveall Hut
 Slaty Hut
 Ruby Bay
-Puotewheke (Scuffle Island)
+Puotewheke;Scuffle Island
 Cliff Peaks
 Tower Ridge
 Mill Arm Creek
@@ -63917,12 +63878,12 @@ Crayfish Creek
 Koura Beach
 Crayfish Point
 Mill Stream
-Wharenoa (Cemetery Island)
+Wharenoa;Cemetery Island
 Taunui Point
-Oparapara (Samson Bay)
+Oparapara;Samson Bay
 Fishermans Passage
 Te Towaka
-Te Towaka Bay (Burnside Bay)
+Te Towaka Bay;Burnside Bay
 Ohana
 Manakau Hill
 Reef Point
@@ -63982,13 +63943,13 @@ Central Hawke's Bay Landfill
 Hatuma Place
 Awkard Hill
 Loch View
-Motutara Island (Henry Island)
+Motutara Island;Henry Island
 Pararaunui Point
 Pararaunui Hill
 Waewaetorea Island
 Okahu Passage
 Red Cliffs
-Mahenotapuku (Bird Rock)
+Mahenotapuku;Bird Rock
 Waipapa Stream
 Rangi Point
 Oakbourne
@@ -64034,8 +63995,7 @@ Bridgend
 McQueens Valley
 Prices Valley
 Mount Lyford Village
-Otututu (Rough) River
-Otututu (Rough) River
+Otututu River;Rough River
 Dunbarten Farm
 SHERWOOD RANGE
 Lake Clearwater
@@ -64285,7 +64245,7 @@ Waiwhakareto Stream
 Te Waipuhake Stream
 Bankside
 Wenjia
-Timore Island (Chimneys)
+Timore Island;Chimneys Island
 Tikitiki Rock
 Ngarara
 Greeridge
@@ -64340,10 +64300,10 @@ Manutai Farm
 Ballantrae Hill Country Research Station
 Wallfield
 Tapapakiekie
-Twain (Waipotiki) Bivouac
+Twain Bivouac;Waipotiki Bivouac
 Mangawai Stream
-Saddle (Mangaawai) Bivouac
-Te U (Kaharoa) Bivouac
+Saddle Bivouac;Mangaawai Bivouac
+Te U Bivouac;Kaharoa Bivouac
 Whangaparapara
 Great Barrier Lodge
 Tullamore
@@ -64358,7 +64318,7 @@ Wastelands Park
 Five Mile Bay
 Tauhara Mountain Walking Track
 Condemned Stream
-Waihohonu - Oturere Track
+Waihohonu;Oturere Track
 Waihohonu Stream
 Waihohonu Track
 Kaimanawa Forest Park Walkway
@@ -64370,7 +64330,7 @@ Ayers Rock
 Rogers Spur Track
 Three Kings Track
 Te Rotete Track
-Whakapapa - Waihohonu Track
+Whakapapa;Waihohonu Track
 Karapiti
 Craters of the Moon
 Pikarere
@@ -64762,8 +64722,6 @@ Horomamae/Owen Island
 Motunui/Edwards Island
 Taukihepa/Big South Cape Island
 Titi/Muttonbird Islands
-Titi/Muttonbird Islands
-Titi/Muttonbird Islands
 Eloin
 Riverview
 The Homestead
@@ -64780,9 +64738,7 @@ Manfeild Raceway
 Gladsmuir
 Glenview
 Tane Mahuta
-Hokianga-Kai Iwi Coastal Track
 Kaikai Beach
-Hokianga-Kai Iwi Coastal Track
 Hokianga-Kai Iwi Coastal Track
 Lookout Track
 Otawhiti Stream
@@ -65154,8 +65110,6 @@ Hunua Gardens
 Pinehaven Downs
 Hapuakohe Walkway
 Lower Mangatawhiri Track
-Mangemange Stream
-Mangemange Stream
 Mangemange Stream
 Whitikau
 Maraeroa
