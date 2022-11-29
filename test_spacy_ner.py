@@ -2,7 +2,7 @@ import spacy
 
 
 def test_spacy_ner():
-    text_file = open("const_evaluation.txt", "r").read()
+    text_file = open("data/constitution/const_evaluation.txt", "r").read()
 
     nlp = spacy.load("en_core_web_sm")
 

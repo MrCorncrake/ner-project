@@ -1,4 +1,4 @@
-evaluation_data = [
+NZ_evaluation_data = [
     ('auckland', [(271, 279), (1224, 1232), (1362, 1370)]),
     ('eden', [(281, 285)]),
     ('rodney', [(287, 293)]),

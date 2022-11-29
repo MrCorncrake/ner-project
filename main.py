@@ -1,19 +1,24 @@
 import nltk
 
-#from evaluation_data import evaluation_data
-from NZ_evaulation_data import evaluation_data
+from data.NZ.NZ_evaulation_data import NZ_evaluation_data
 from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
 import sys
 from functools import reduce
-from test_spacy_ner import test_spacy_ner
 
 # nltk.download('punkt')
 nltk.download('stopwords')
 
-#file = "const_evaluation.txt"
-file = 'NZ_text.txt'
+# Const sample
+# file = "const_evaluation.txt"
+# lib_file = "library.txt"
+# evaluation_data = const_evaluation_data
+
+# NZ sample
+file = 'data/NZ/NZ_text.txt'
+lib_file = "data/NZ/NZ_lib.txt"
+evaluation_data = NZ_evaluation_data
 
 
 def resource_path(relative_path):
@@ -28,8 +33,7 @@ def resource_path(relative_path):
 
 
 if __name__ == '__main__':
-    #lib = EntityLibrary(resource_path("library.txt"))
-    lib = EntityLibrary(resource_path("NZ_lib.txt"))
+    lib = EntityLibrary(resource_path(lib_file))
     ner = NamedEntityRecognizer(lib)
     with open(resource_path(file)) as f:
         lines = f.read()
@@ -40,8 +44,6 @@ if __name__ == '__main__':
         # Results
         print(list(results.items()))
         print('')
-        # for key in results:
-        #     print(key + ": " + str(len(results[key])))
 
         total_are = 0
         total_found = 0

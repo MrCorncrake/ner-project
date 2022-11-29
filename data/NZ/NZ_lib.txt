@@ -1606,17 +1606,12 @@ Victory Island;Moutiti
 Victoria Valley
 Victoria River
 Victoria Range
-Victoria Range
-Mount Victoria
-Mount Victoria
 Mount Victoria
 Victoria Hill
 Victoria Gully
-Victoria Glacier;Victoria
+Victoria Glacier
 Victoria Creek
 Victoria Channel
-Victoria
-Victoria
 Victor Peak
 Mount Victor
 Mount Victoire
@@ -5788,7 +5783,6 @@ Peep o'Day
 Peel Stream
 Peel Range
 Peel Forest
-Mount Peel
 Mount Peel
 Peebles
 Pedro Creek
@@ -12455,10 +12449,9 @@ Mount Edgecumbe;Putauaki
 Edgecumbe
 Edgecombe Point;Edgcumbe Point
 Mount Edgar
-Eden Valley
+Eden;Eden Valley;
 Edenham
 Edendale;Edendale Town District
-Eden Creek
 Eden Creek
 Mount Eden
 Mount Eden;Maungawhau
@@ -28355,7 +28348,6 @@ Mule Spur
 Mount Peel
 Long Spur
 Blacksmith Spur
-Mount Peel
 Middle Mount Peel
 Horse Spur
 Top Mount Peel Huts
@@ -31417,7 +31409,6 @@ Mills Bush
 Peel Forest
 Coopers Creek
 Cracroft
-Peel View
 Drayton
 Dennislea
 Simla
@@ -57981,7 +57972,7 @@ Okahu Bay
 Kahika Bay
 Arthurs Bay
 Aratawa Bay
-Chaucer Bay
+Chaucer;Chaucer Bay
 Cockle Cove
 Milton Bay
 Cherry Bay
@@ -67574,7 +67565,7 @@ Apartments On The Waterfront
 Kimeret Place Bed And Breakfast
 Kershaw House
 Cambria House
-404 Trafalgar
+Trafalgar;404 Trafalgar
 Balmoral Motel And Motor Lodge
 Bella Tuscany
 Albatross Motel
@@ -67605,7 +67596,7 @@ Misty Peaks
 Fox Glacier Mountain View
 Carisbrook Motel
 Adrian Motel
-The Victoria
+Victoria
 Waihi Beach Lodge
 Timara Lodge
 Stonehaven Vineyard Homestay
