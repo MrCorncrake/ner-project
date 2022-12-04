@@ -1,6 +1,7 @@
 import nltk
 
 from data.NZ.NZ_evaulation_data import NZ_evaluation_data
+from data.constitution.const_evaluation_data import const_evaluation_data
 from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
@@ -11,14 +12,14 @@ from functools import reduce
 nltk.download('stopwords')
 
 # Const sample
-# file = "const_evaluation.txt"
-# lib_file = "library.txt"
-# evaluation_data = const_evaluation_data
+file = "data/constitution/const_evaluation.txt"
+lib_file = "data/constitution/const_library.txt"
+evaluation_data = const_evaluation_data
 
 # NZ sample
-file = 'data/NZ/NZ_text.txt'
-lib_file = "data/NZ/NZ_lib.txt"
-evaluation_data = NZ_evaluation_data
+# file = 'data/NZ/NZ_text.txt'
+# lib_file = "data/NZ/NZ_lib.txt"
+# evaluation_data = NZ_evaluation_data
 
 
 def resource_path(relative_path):
