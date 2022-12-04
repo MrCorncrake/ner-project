@@ -33,8 +33,8 @@ class Entity:
             tokens.extend(t_form)
         self.tokens = set(tokens)
 
-    def contains_token(self, token: str) -> bool:
-        """ Returns True if the entity can contain provided token """
+    def related_token(self, token: str) -> bool:
+        """ Returns True if the token is related to the entity """
         for t in self.tokens:
             if _similar_strings(token, t):
                 return True
@@ -103,7 +103,7 @@ class EntityLibrary:
         entity_ids = []
         token = _clear_token(token)
         for entity in self.__entities:
-            if entity.contains_token(token):
+            if entity.related_token(token):
                 entity_ids.append(entity.id)
         return entity_ids
 
