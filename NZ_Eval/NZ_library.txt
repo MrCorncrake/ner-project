@@ -21,6 +21,7 @@ Bay of Islands;Baie des Iles;Baie des Îles;Bej-of-Ajlends;aillaenjeu man;dao wa
 Stewart Island/Raikura;Ile Stewart;Isla Stewart;Raikura;Raki-Ura;SZS;Stewart Island;Île Stewart
 Tongariro National Park;Tongariro;Nationaal park Tongariro;Tongariro National Park;Tongariro Nationalpark;Tongariro nationalpark;Tongariro-Nationalpark;Tongariron kansallispuisto;dong ge li luo guo jia gong yuan;tongariro guo li gong yuan;פארק לאומי טונגרירו;トンガリロ国立公園;東格里羅國家公園
 Lake Taupo
+Taupo
 South Island;South Island's
 North Island;North Island's
 Whanganui;Vanganui;WAG;Wanganui;Вангануи;Manawatu-Wanganui
