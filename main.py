@@ -127,6 +127,6 @@ if __name__ == '__main__':
     Button(master, text='Chose file', command=lambda: chose_filepath(t2)).grid(row=1, column=2, padx=5)
     Button(master, text='Confirm', command=calculate).grid(row=4, column=1, pady=6)
 
-    t1.set(DEF_LIB_FILE)
-    t2.set(DEF_FILE)
+    t1.set(resource_path(DEF_LIB_FILE))
+    t2.set(resource_path(DEF_FILE))
     master.mainloop()

@@ -1,5 +1,6 @@
 from functools import reduce
 
+
 def accuracy_eval(evaluation_data, results):
     total_are = 0
     total_found = 0
