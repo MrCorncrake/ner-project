@@ -47,7 +47,7 @@ def resource_path(relative_path):
 
 
 def chose_filepath(entry_txt):
-    chosen_file = filedialog.askopenfile(mode='r', filetypes=[('text files', '.txt'), ('all files', '.*')])
+    chosen_file = filedialog.askopenfile(mode='r', filetypes=[('all files', '.*'), ('text files', '.txt')])
     if chosen_file:
         filepath = os.path.abspath(chosen_file.name)
         entry_txt.set(filepath)
