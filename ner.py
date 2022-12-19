@@ -1,4 +1,7 @@
 import nltk
+import Levenshtein
+
+_THRESHOLD = 0.25
 
 
 def _clear_token(token):
@@ -6,6 +9,14 @@ def _clear_token(token):
     token = token.replace('.', '')
     token = token.lower()
     return token
+
+
+def _similar_strings(word, target):
+    dist = Levenshtein.distance(word, target)
+    w_len = len(word)
+    t_len = len(target)
+    val = (1 + abs(w_len - t_len)/t_len) * dist / t_len
+    return val <= _THRESHOLD
 
 
 class Entity:
@@ -22,17 +33,32 @@ class Entity:
             tokens.extend(t_form)
         self.tokens = set(tokens)
 
-    def contains_token(self, token: str) -> bool:
-        """ Returns True if the entity can contain provided token """
-        return token in self.tokens
+    def related_token(self, token: str) -> bool:
+        """ Returns True if the token is related to the entity """
+        for t in self.tokens:
+            if _similar_strings(token, t):
+                return True
+        return False
 
     def has_form(self, form: str) -> bool:
         """ Returns True if the entity can be expressed by the provided form """
-        return form in self.forms
+        for f in self.forms:
+            if _similar_strings(form, f):
+                return True
+        return False
 
     def has_t_form(self, t_form: [str]) -> bool:
         """ Returns True if the entity can be expressed by the provided tokenized form """
-        return t_form in self.t_forms
+        for tf in self.t_forms:
+            if len(t_form) == len(tf):
+                done = True
+                for t1, t2 in zip(t_form, tf):
+                    if not _similar_strings(t1, t2):
+                        done = False
+                        break
+                if done:
+                    return True
+        return False
 
     def __str__(self):
         return '[' + self.id + ': ' + self.name + ']'
@@ -77,7 +103,7 @@ class EntityLibrary:
         entity_ids = []
         token = _clear_token(token)
         for entity in self.__entities:
-            if entity.contains_token(token):
+            if entity.related_token(token):
                 entity_ids.append(entity.id)
         return entity_ids
 

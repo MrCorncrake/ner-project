@@ -1,26 +1,37 @@
 import nltk
 
 from data.NZ.NZ_evaulation_data import NZ_evaluation_data
+from data.constitution.const_evaluation_data import const_evaluation_data
+from NZ_Eval.text1.short_text1_evaluation_data import short_text1_evaluation_data
+from NZ_Eval.text2.short_text2_evaluation_data import short_text2_evaluation_data
+from NZ_Eval.text3.short_text3_evaluation_data import short_text3_evaluation_data
+from NZ_Eval.text4.short_text4_evaluation_data import short_text4_evaluation_data
+from NZ_Eval.text5.short_text5_evaluation_data import short_text5_evaluation_data
 from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
 import sys
 from evaluation import accuracy_eval
+from tkinter import filedialog
+from tkinter import *
 
 # nltk.download('punkt')
 nltk.download('stopwords')
 
-# Const sample
-# file = "const_evaluation.txt"
-# lib_file = "library.txt"
-# evaluation_data = const_evaluation_data
-
-# NZ sample
-file = 'data/NZ/NZ_text.txt'
-lib_file = "data/NZ/NZ_lib.txt"
-evaluation_data = NZ_evaluation_data
-
-from tkinter import *
+# CONSTANTS
+DEF_FILE = "data/constitution/const_evaluation.txt"
+DEF_LIB_FILE = "data/constitution/const_library.txt"
+DEF_EVALUATION_DATA = "const_evaluation_data"
+EVALUATION_DATAS = {
+    "None": None,
+    "const_evaluation_data": const_evaluation_data,
+    "NZ_evaluation_data": NZ_evaluation_data,
+    "short_text1_evaluation_data": short_text1_evaluation_data,
+    "short_text2_evaluation_data": short_text2_evaluation_data,
+    "short_text3_evaluation_data": short_text3_evaluation_data,
+    "short_text4_evaluation_data": short_text4_evaluation_data,
+    "short_text5_evaluation_data": short_text5_evaluation_data
+}
 
 
 def resource_path(relative_path):
@@ -34,6 +45,13 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
+def chose_filepath(entry_txt):
+    chosen_file = filedialog.askopenfile(mode='r', filetypes=[('text files', '.txt'), ('all files', '.*')])
+    if chosen_file:
+        filepath = os.path.abspath(chosen_file.name)
+        entry_txt.set(filepath)
+
+
 def calculate():
     print(e1.get())
     try:
@@ -42,7 +60,7 @@ def calculate():
         loaded_lib_file = resource_path(custom_lib_file)
         lib = EntityLibrary(loaded_lib_file)
     except:
-        loaded_lib_file = resource_path(lib_file)
+        loaded_lib_file = resource_path(DEF_LIB_FILE)
         lib = EntityLibrary(loaded_lib_file)
 
     ner = NamedEntityRecognizer(lib)
@@ -53,7 +71,7 @@ def calculate():
         loaded_text_file = resource_path(custom_text_file)
         lines = open(loaded_text_file, encoding="utf8").read()
     except:
-        loaded_text_file = resource_path(file)
+        loaded_text_file = resource_path(DEF_FILE)
         lines = open(loaded_text_file, encoding="utf8").read()
 
     global master
@@ -65,7 +83,9 @@ def calculate():
     print(list(results.items()))
     print('')
 
-    accuracy_eval(evaluation_data, results)
+    evaluation_data = EVALUATION_DATAS[eval_data.get()]
+    if evaluation_data is not None:
+        accuracy_eval(evaluation_data, results)
 
     # Visualization
     window(lines, results.items())
@@ -74,15 +94,27 @@ def calculate():
 if __name__ == '__main__':
 
     master = Tk()
-    Label(master, text="Optional lib file path").grid(row=0)
-    Label(master, text="Optional text file path").grid(row=1)
+    Label(master, text="Lib file path").grid(row=0)
+    Label(master, text="Text file path").grid(row=1)
+    Label(master, text="Evaluation data").grid(row=2)
 
-    e1 = Entry(master)
-    e2 = Entry(master)
+    t1 = StringVar()
+    t2 = StringVar()
+    e1 = Entry(master, textvariable=t1, width=40)
+    e2 = Entry(master, textvariable=t2, width=40)
 
     e1.grid(row=0, column=1)
     e2.grid(row=1, column=1)
 
-    Button(master, text='Confirm', command=calculate).grid(row=3, column=1, sticky=W, pady=4)
+    eval_data = StringVar()
+    eval_data.set(DEF_EVALUATION_DATA)
+    d = OptionMenu(master, eval_data, *EVALUATION_DATAS.keys())
+    d.grid(row=2, column=1)
 
+    Button(master, text='Chose file', command=lambda: chose_filepath(t1)).grid(row=0, column=2, padx=5)
+    Button(master, text='Chose file', command=lambda: chose_filepath(t2)).grid(row=1, column=2, padx=5)
+    Button(master, text='Confirm', command=calculate).grid(row=3, column=1, pady=6)
+
+    t1.set(DEF_LIB_FILE)
+    t2.set(DEF_FILE)
     master.mainloop()

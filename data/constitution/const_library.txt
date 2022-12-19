@@ -1,19 +1,19 @@
 USA;United States of America;United States
-Representative;Representatives
-State;States
-Election;Elections
+Representative
+State
+Election
 Congress
-Senator;Senators
-President;Presidents
+Senator
+President
 House of Representatives
-Citizen;Citizens
-Member;Members
-Constitution;Constitutions
+Citizen
+Member
+Constitution
 Senate
 Section
-Person;People;Persons
+Person;People
 Qualifications
 Union
 #Amendment;Amendments
-#Vice-President;Vice President;Vice-Presidents;Vice Presidents
+#Vice-President;Vice President
 #Supreme Court;Court of the United States;Court
