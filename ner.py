@@ -11,21 +11,22 @@ def _clear_token(token):
     return token
 
 
-def _similar_strings(word, target):
+def _similar_strings(word, target, threshold):
     dist = Levenshtein.distance(word, target)
     w_len = len(word)
     t_len = len(target)
     val = (1 + abs(w_len - t_len)/t_len) * dist / t_len
-    return val <= _THRESHOLD
+    return val <= threshold
 
 
 class Entity:
 
-    def __init__(self, entity_id, forms):
+    def __init__(self, entity_id, forms, threshold):
         self.id = entity_id
         self.name = forms[0]
         self.forms = forms
         self.t_forms = []
+        self._threshold = threshold
         tokens = []
         for form in forms:
             t_form = nltk.TreebankWordTokenizer().tokenize(form)
@@ -36,14 +37,14 @@ class Entity:
     def related_token(self, token: str) -> bool:
         """ Returns True if the token is related to the entity """
         for t in self.tokens:
-            if _similar_strings(token, t):
+            if _similar_strings(token, t, self._threshold):
                 return True
         return False
 
     def has_form(self, form: str) -> bool:
         """ Returns True if the entity can be expressed by the provided form """
         for f in self.forms:
-            if _similar_strings(form, f):
+            if _similar_strings(form, f, self._threshold):
                 return True
         return False
 
@@ -53,7 +54,7 @@ class Entity:
             if len(t_form) == len(tf):
                 done = True
                 for t1, t2 in zip(t_form, tf):
-                    if not _similar_strings(t1, t2):
+                    if not _similar_strings(t1, t2, self._threshold):
                         done = False
                         break
                 if done:
@@ -66,7 +67,7 @@ class Entity:
 
 class EntityLibrary:
 
-    def __init__(self, file):
+    def __init__(self, file, threshold=_THRESHOLD):
         self.__file = file
 
         with open(file, encoding='UTF-8') as f:
@@ -78,7 +79,7 @@ class EntityLibrary:
             self.__entities = []
             self.__no_entities = len(entities)
             for i in range(len(entities)):
-                entity = Entity(i, entities[i])
+                entity = Entity(i, entities[i], threshold)
                 self.__entities.append(entity)
 
     def get_entities(self) -> [Entity]:

@@ -19,6 +19,7 @@ from tkinter import *
 nltk.download('stopwords')
 
 # CONSTANTS
+DEF_THRESHOLD = 0.25
 DEF_FILE = "data/constitution/const_evaluation.txt"
 DEF_LIB_FILE = "data/constitution/const_library.txt"
 DEF_EVALUATION_DATA = "const_evaluation_data"
@@ -53,15 +54,20 @@ def chose_filepath(entry_txt):
 
 
 def calculate():
+    if t_spinbox.get() is not None and t_spinbox.get() != "":
+        threshold = float(t_spinbox.get())
+    else:
+        threshold = DEF_THRESHOLD
+    print(threshold)
     print(e1.get())
     try:
         custom_lib_file = e1.get()
         print(custom_lib_file)
         loaded_lib_file = resource_path(custom_lib_file)
-        lib = EntityLibrary(loaded_lib_file)
+        lib = EntityLibrary(loaded_lib_file, threshold)
     except:
         loaded_lib_file = resource_path(DEF_LIB_FILE)
-        lib = EntityLibrary(loaded_lib_file)
+        lib = EntityLibrary(loaded_lib_file, threshold)
 
     ner = NamedEntityRecognizer(lib)
 
@@ -97,6 +103,7 @@ if __name__ == '__main__':
     Label(master, text="Lib file path").grid(row=0)
     Label(master, text="Text file path").grid(row=1)
     Label(master, text="Evaluation data").grid(row=2)
+    Label(master, text="Similarity threshold").grid(row=3)
 
     t1 = StringVar()
     t2 = StringVar()
@@ -111,9 +118,14 @@ if __name__ == '__main__':
     d = OptionMenu(master, eval_data, *EVALUATION_DATAS.keys())
     d.grid(row=2, column=1)
 
+    d1 = DoubleVar()
+    d1.set(DEF_THRESHOLD)
+    t_spinbox = Spinbox(master, textvariable=d1, from_=0, to=1.0, increment=0.01)
+    t_spinbox.grid(row=3, column=1)
+
     Button(master, text='Chose file', command=lambda: chose_filepath(t1)).grid(row=0, column=2, padx=5)
     Button(master, text='Chose file', command=lambda: chose_filepath(t2)).grid(row=1, column=2, padx=5)
-    Button(master, text='Confirm', command=calculate).grid(row=3, column=1, pady=6)
+    Button(master, text='Confirm', command=calculate).grid(row=4, column=1, pady=6)
 
     t1.set(DEF_LIB_FILE)
     t2.set(DEF_FILE)
