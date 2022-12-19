@@ -6,7 +6,7 @@ from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
 import sys
-from functools import reduce
+from evaluation import accuracy_eval
 
 # nltk.download('punkt')
 nltk.download('stopwords')
@@ -21,6 +21,8 @@ evaluation_data = const_evaluation_data
 # lib_file = "data/NZ/NZ_lib.txt"
 # evaluation_data = NZ_evaluation_data
 
+from tkinter import *
+
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -33,55 +35,55 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-if __name__ == '__main__':
-    lib = EntityLibrary(resource_path(lib_file))
+def calculate():
+    print(e1.get())
+    try:
+        custom_lib_file = e1.get()
+        print(custom_lib_file)
+        loaded_lib_file = resource_path(custom_lib_file)
+        lib = EntityLibrary(loaded_lib_file)
+    except:
+        loaded_lib_file = resource_path(lib_file)
+        lib = EntityLibrary(loaded_lib_file)
+
     ner = NamedEntityRecognizer(lib)
-    with open(resource_path(file)) as f:
-        lines = f.read()
 
-        results = ner.recognize_in(lines, overlapping=False)
-        # results = test_spacy_ner()
+    try:
+        custom_text_file = e2.get()
+        print(custom_text_file)
+        loaded_text_file = resource_path(custom_text_file)
+        lines = open(loaded_text_file, encoding="utf8").read()
+    except:
+        loaded_text_file = resource_path(file)
+        lines = open(loaded_text_file, encoding="utf8").read()
 
-        # Results
-        print(list(results.items()))
-        print('')
+    global master
+    master.destroy()
 
-        total_are = 0
-        total_found = 0
+    results = ner.recognize_in(lines, overlapping=False)
+    # results = test_spacy_ner()
+    # Results
+    print(list(results.items()))
+    print('')
 
-        for word in evaluation_data:
-            total_are += len(word[1])
-            print(word[0] + ": " + str(len(word[1])))
-            if word[0] in results:
-                print(word[0] + ": " + str(len(results[word[0]])))
-                total_found += len(results[word[0]])
-            else:
-                print(word[0] + ": 0")
+    accuracy_eval(evaluation_data, results)
 
-        all_letters = 0
-        matching_letters = 0
+    # Visualization
+    window(lines, results.items())
 
-        for word in evaluation_data:
-            if word[0] in results:
-                for word_position in word[1]:
-                    found = 0
-                    for found_word_position in results[word[0]]:
-                        if not(
-                                found_word_position[0] < word_position[0] and found_word_position[1] < word_position[1]
-                                or found_word_position[0] > word_position[0] and found_word_position[1] > word_position[1]
-                        ):
-                            found += 1
-                            all_letters += word_position[1] - word_position[0]
-                            matching_letters += word_position[1] - word_position[0] \
-                                                - max(0, found_word_position[0] - word_position[0]) \
-                                                - max(0, word_position[1] - found_word_position[1])
-                    if found == 0:
-                        all_letters += word_position[1] - word_position[0]
-            else:
-                print(all_letters)
-                all_letters += reduce(lambda total, position: total + position[1] - position[0], word[1], 0)
 
-        print("word accuracy: " + str(total_found / total_are))
-        print("letter accuracy: " + str(matching_letters / all_letters))
-        # Visualization
-        window(lines, results.items())
+if __name__ == '__main__':
+
+    master = Tk()
+    Label(master, text="Optional lib file path").grid(row=0)
+    Label(master, text="Optional text file path").grid(row=1)
+
+    e1 = Entry(master)
+    e2 = Entry(master)
+
+    e1.grid(row=0, column=1)
+    e2.grid(row=1, column=1)
+
+    Button(master, text='Confirm', command=calculate).grid(row=3, column=1, sticky=W, pady=4)
+
+    master.mainloop()
