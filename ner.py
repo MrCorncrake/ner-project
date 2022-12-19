@@ -1,7 +1,7 @@
 import nltk
 import Levenshtein
 
-_THRESHOLD = 0.20
+_THRESHOLD = 0.25
 
 
 def _clear_token(token):
@@ -16,7 +16,7 @@ def _similar_strings(word, target):
     w_len = len(word)
     t_len = len(target)
     val = (1 + abs(w_len - t_len)/t_len) * dist / t_len
-    return val < _THRESHOLD
+    return val <= _THRESHOLD
 
 
 class Entity:

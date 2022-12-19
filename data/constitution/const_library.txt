@@ -15,5 +15,5 @@ Person;People
 Qualifications
 Union
 #Amendment;Amendments
-#Vice-President;Vice President;Vice-Presidents;Vice Presidents
+#Vice-President;Vice President
 #Supreme Court;Court of the United States;Court
