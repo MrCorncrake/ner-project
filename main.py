@@ -100,31 +100,33 @@ def calculate():
 if __name__ == '__main__':
 
     master = Tk()
-    Label(master, text="Lib file path").grid(row=0)
-    Label(master, text="Text file path").grid(row=1)
-    Label(master, text="Evaluation data").grid(row=2)
-    Label(master, text="Similarity threshold").grid(row=3)
+    master.title("NER")
+    Label(master, text="Entity library file path").grid(row=0, sticky=W, padx=5)
+    Label(master, text="Text file path").grid(row=1, sticky=W, padx=5)
+    Label(master, text="Evaluation data").grid(row=2, sticky=W, padx=5)
+    Label(master, text="Similarity threshold").grid(row=3, sticky=W, padx=5)
 
     t1 = StringVar()
     t2 = StringVar()
     e1 = Entry(master, textvariable=t1, width=40)
     e2 = Entry(master, textvariable=t2, width=40)
 
-    e1.grid(row=0, column=1)
-    e2.grid(row=1, column=1)
+    e1.grid(row=0, column=1, sticky=W)
+    e2.grid(row=1, column=1, sticky=W)
 
     eval_data = StringVar()
     eval_data.set(DEF_EVALUATION_DATA)
     d = OptionMenu(master, eval_data, *EVALUATION_DATAS.keys())
-    d.grid(row=2, column=1)
+    d.config(width=30)
+    d.grid(row=2, column=1, sticky=W)
 
     d1 = DoubleVar()
     d1.set(DEF_THRESHOLD)
     t_spinbox = Spinbox(master, textvariable=d1, from_=0, to=1.0, increment=0.01)
-    t_spinbox.grid(row=3, column=1)
+    t_spinbox.grid(row=3, column=1, sticky=W)
 
-    Button(master, text='Chose file', command=lambda: chose_filepath(t1)).grid(row=0, column=2, padx=5)
-    Button(master, text='Chose file', command=lambda: chose_filepath(t2)).grid(row=1, column=2, padx=5)
+    Button(master, text='Chose file', command=lambda: chose_filepath(t1)).grid(row=0, column=2, padx=7)
+    Button(master, text='Chose file', command=lambda: chose_filepath(t2)).grid(row=1, column=2, padx=7)
     Button(master, text='Confirm', command=calculate).grid(row=4, column=1, pady=6)
 
     t1.set(resource_path(DEF_LIB_FILE))
