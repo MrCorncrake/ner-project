@@ -7,6 +7,7 @@ from data.NZ_Eval.text2.short_text2_evaluation_data import short_text2_evaluatio
 from data.NZ_Eval.text3.short_text3_evaluation_data import short_text3_evaluation_data
 from data.NZ_Eval.text4.short_text4_evaluation_data import short_text4_evaluation_data
 from data.NZ_Eval.text5.short_text5_evaluation_data import short_text5_evaluation_data
+from test_spacy_ner import test_spacy_ner
 from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
@@ -84,6 +85,7 @@ def calculate():
 
     results = ner.recognize_in(lines, overlapping=False)
     # results = test_spacy_ner()
+
     # Results
     print(list(results.items()))
     print('')
