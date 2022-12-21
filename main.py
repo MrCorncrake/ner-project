@@ -2,11 +2,11 @@ import nltk
 
 from data.NZ.NZ_evaulation_data import NZ_evaluation_data
 from data.constitution.const_evaluation_data import const_evaluation_data
-from NZ_Eval.text1.short_text1_evaluation_data import short_text1_evaluation_data
-from NZ_Eval.text2.short_text2_evaluation_data import short_text2_evaluation_data
-from NZ_Eval.text3.short_text3_evaluation_data import short_text3_evaluation_data
-from NZ_Eval.text4.short_text4_evaluation_data import short_text4_evaluation_data
-from NZ_Eval.text5.short_text5_evaluation_data import short_text5_evaluation_data
+from data.NZ_Eval.text1.short_text1_evaluation_data import short_text1_evaluation_data
+from data.NZ_Eval.text2.short_text2_evaluation_data import short_text2_evaluation_data
+from data.NZ_Eval.text3.short_text3_evaluation_data import short_text3_evaluation_data
+from data.NZ_Eval.text4.short_text4_evaluation_data import short_text4_evaluation_data
+from data.NZ_Eval.text5.short_text5_evaluation_data import short_text5_evaluation_data
 from window import window
 from ner import EntityLibrary, NamedEntityRecognizer
 import os
@@ -58,7 +58,6 @@ def calculate():
         threshold = float(t_spinbox.get())
     else:
         threshold = DEF_THRESHOLD
-    print(threshold)
     print(e1.get())
     try:
         custom_lib_file = e1.get()
