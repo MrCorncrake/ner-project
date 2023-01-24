@@ -25,4 +25,4 @@ Taupo
 South Island;South Island's
 North Island;North Island's
 Whanganui;Vanganui;WAG;Wanganui;Вангануи;Manawatu-Wanganui
-Tasman Glacier
+Tasman Glacierasdads
